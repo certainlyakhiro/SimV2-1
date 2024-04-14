@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .message {
+      background-color: #2e2e2e;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .message.sent {
+      background-color: #007bff;
+      text-align: right;
+    }
+
+    .message.received {
+      background-color: #009688;
+      text-align: left;
+    }
+
+    .input-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .input-container input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    .input-container button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .input-container input[type="text"]::placeholder {
+      color: #ccc;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="centertext">Chat with SimV2</h1>
+  <div class="container" id="chat-container">
+  </div>
+  <div class="input-container">
+    <input type="text" id="message-input" placeholder="Enter your message...">
+    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+
+  <h5 class="footer-text">Made with 🤍 by Rui</h5>
+  <h5 class="footer-text">Responses are maded with 🤍 by Francis</h5>
+  <h5 class="footer-text">&copy; Rui | https://github.com/ruingl</h5>
+
+  <script>
+    function sendMessage() {
+      const messageInput = document.getElementById('message-input');
+      const message = messageInput.value.trim();
+
+      if (message === '') {
+        return;
+      }
+
+      fetch(`/api/sim?content=${encodeURIComponent(message)}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          displayMessage(message, 'sent');
+          displayMessage(data.message, 'received');
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+
+      messageInput.value = '';
+    }
+
+    function displayMessage(message, messageType) {
+      const chatContainer = document.getElementById('chat-container');
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', messageType);
+      const paragraph = document.createElement('p');
+      paragraph.textContent = message;
+      messageElement.appendChild(paragraph);
+      chatContainer.appendChild(messageElement);
+    }
+  </script>
+</body>
+</html>
