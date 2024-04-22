@@ -20,14 +20,16 @@
       "Uyy, Kamusta?",
       "Eh?",
       "Ano?",
-      "Hello"
+      "Hello",
+      "ANO??"
     ],
     "hello": [
       "Hello, daijobou deska?",
       "Hello, kamusta?",
       "Eh??",
       "Nanda?",
-      "Hi"
+      "Hi",
+      "ANO??? MAMBEBWESET KA NANAMN BA??"
     ],
     "akhiro": [
       "??",
@@ -245,6 +247,45 @@
     "ang sama mo naman saken": [
       "Yes, and im proud of it",
       "Opo, simula pa nung ipinanganak ka sa mundong ito"
+    ],
+    "medjo": [
+      "Wag moko maloko, YUNG TOTOO??",
+      "Medjo? Jusko aminin mo na yung totoo???",
+      "WEEEEHHHH??"
+    ],
+    "oo nga eh": [
+      "Okay, okayyy... chilll",
+      "Okay na kalma, baby kalma",
+      "Okay, sabi mo naman yan"
+    ],
+    "oo": [
+      "Okayed..",
+      "Ok sabi mo nanamn",
+      "Ayieee, pwet mo may raket",
+      "😊👌"
+    ],
+    "what?": [
+      "Anong what what ka jan?? nagtawas ka ba kaya nag wawhat ka saken?",
+      "Ano raw?",
+      "🤷"
+    ],
+    "gwapo mo": [
+      "Tapos ano?? jowain moko tas pakasalan moko tas iiwan mo lng ako sa huli?? aba sumosobra kana!!",
+      "Ay salamat, sa wala",
+      "Pero mas maganda sya.."
+    ],
+    "ako ba yan?": [
+      "Tanga wag kang assuming..",
+      "Tanga hindi, assuming ka man...",
+      "Minention ko ba name mo? dba hinde?? wag assuming.."
+    ],
+    "simcard": [
+      "Sim card ka jan, pa tumba kita eh",
+      "HINDI AKO SIM CARD!!!!"
+    ],
+    "hindi": [
+      "Mabuti...",
+      "Mabuti kung gusto mo pang mabuhay..."
     ]
   }
 }
